@@ -1,0 +1,28 @@
+{
+    "name": "next-utilities",
+    "version": "2.0.0",
+    "description": "Modern, fast, powerful node.js web framework",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "node --max_old_space_size=4096 ./node_modules/gulp/bin/gulp.js build --dist packages",
+        "prepublish": "node --max_old_space_size=4096 ./node_modules/gulp/bin/gulp.js build --dist packages",
+        "publish": "node ./node_modules/lerna/bin/lerna.js publish -m \"chore(release): publish %s\""
+    },
+    "engines": {
+        "node": ">=9.0.0"
+    },
+    "private": true,
+    "dependencies": {
+        "typescript": "^2.8.1"
+    },
+    "devDependencies": {
+        "@notadd/gulp-typescript": "^4.0.2",
+        "gulp": "^3.9.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sequence": "^1.0.0",
+        "gulp-watch": "^5.0.0",
+        "lerna": "^2.9.1"
+    },
+    "workspaces": [
+    ]
+}
