@@ -19,6 +19,9 @@
     "devDependencies": {
         "@already/open-in-browser": "^1.0.0",
         "@notadd/gulp-typescript": "^4.0.2",
+        "@types/chalk": "^2.2.0",
+        "@types/cross-spawn": "^6.0.0",
+        "@types/opn": "^5.1.0",
         "gulp": "^3.9.1",
         "gulp-rename": "^1.2.2",
         "gulp-sequence": "^1.0.0",
