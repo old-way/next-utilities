@@ -14,6 +14,11 @@
     ],
     "author": "already",
     "license": "Apache-2.0",
+    "dependencies": {
+        "chalk": "^2.3.2",
+        "cross-spawn": "^6.0.5",
+        "opn": "^5.3.0"
+    },
     "bugs": {
         "url": "https://github.com/notadd/next-utilities/issues"
     },
