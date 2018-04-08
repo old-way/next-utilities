@@ -20,6 +20,7 @@ export function startBrowserProcess(browser, url) {
                 cwd: __dirname,
                 stdio: 'ignore',
             });
+
             return true;
         } catch (err) {
             // Ignore errors.

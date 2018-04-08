@@ -1,4 +1,4 @@
-import { openBrowser } from "./functions/open-browser.function";
+import { openInBrowser } from "./functions/open-in-browser.function";
 
-export { openBrowser } from "./functions/open-browser.function";
-export default openBrowser;
+export { openInBrowser } from "./functions/open-in-browser.function";
+export default openInBrowser;

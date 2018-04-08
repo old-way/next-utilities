@@ -3,7 +3,7 @@ import { executeNodeScript } from "./execute-node-script.function";
 import { getBrowserEnv } from "./get-browser-env.function";
 import { startBrowserProcess } from "./start-browser-process.function";
 
-export function openBrowser(url) {
+export function openInBrowser(url) {
     const { action, value } = getBrowserEnv();
     switch (action) {
         case Actions.NONE:
