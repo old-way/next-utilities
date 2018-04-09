@@ -26,6 +26,7 @@ modules.forEach(module => {
             }))
             .pipe(tslint.report({
                 emitError: false,
+                summarizeFailureOutput: true,
             }))
             .pipe(packages[module]())
             .pipe(gulp.dest(`${dist}/${module}`));
