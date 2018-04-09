@@ -1,4 +1,4 @@
-import { Actions } from "../constants/actions.constant";
+import { actions } from "../constants/actions.constant";
 
 export function getBrowserEnv() {
     // Attempt to honor this environment variable.
@@ -8,14 +8,14 @@ export function getBrowserEnv() {
     let action;
     if (!value) {
         // Default.
-        action = Actions.BROWSER;
+        action = actions.BROWSER;
         value = "";
-    } else if (value.toLowerCase().endsWith('.js')) {
-        action = Actions.SCRIPT;
-    } else if (value.toLowerCase() === 'none') {
-        action = Actions.NONE;
+    } else if (value.toLowerCase().endsWith(".js")) {
+        action = actions.SCRIPT;
+    } else if (value.toLowerCase() === "none") {
+        action = actions.NONE;
     } else {
-        action = Actions.BROWSER;
+        action = actions.BROWSER;
     }
     return { action, value };
 }
