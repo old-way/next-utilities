@@ -1,7 +1,7 @@
 const gulp = require("gulp");
-const rename = require("gulp-rename");
 const sequence = require("gulp-sequence");
 const ts = require("@notadd/gulp-typescript");
+const tslint = require("gulp-tslint");
 
 const packages = {
     "open-in-browser": ts.createProject("src/open-in-browser/tsconfig.json"),
@@ -21,6 +21,12 @@ modules.forEach(module => {
     gulp.task(module, () => {
         return packages[module]
             .src()
+            .pipe(tslint({
+                formatter: "verbose",
+            }))
+            .pipe(tslint.report({
+                emitError: false,
+            }))
             .pipe(packages[module]())
             .pipe(gulp.dest(`${dist}/${module}`));
     });
