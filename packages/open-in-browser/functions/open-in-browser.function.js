@@ -7,14 +7,14 @@ const start_browser_process_function_1 = require("./start-browser-process.functi
 function openInBrowser(url) {
     const { action, value } = get_browser_env_function_1.getBrowserEnv();
     switch (action) {
-        case actions_constant_1.Actions.NONE:
+        case actions_constant_1.actions.NONE:
             return false;
-        case actions_constant_1.Actions.SCRIPT:
+        case actions_constant_1.actions.SCRIPT:
             return execute_node_script_function_1.executeNodeScript(value, url);
-        case actions_constant_1.Actions.BROWSER:
+        case actions_constant_1.actions.BROWSER:
             return start_browser_process_function_1.startBrowserProcess(value, url);
         default:
-            throw new Error('Not implemented.');
+            throw new Error("Not implemented.");
     }
 }
 exports.openInBrowser = openInBrowser;

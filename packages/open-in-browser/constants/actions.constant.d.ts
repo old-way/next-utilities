@@ -1,4 +1,4 @@
-export declare const Actions: Readonly<{
+export declare const actions: Readonly<{
     NONE: number;
     BROWSER: number;
     SCRIPT: number;
