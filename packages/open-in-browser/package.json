@@ -1,6 +1,6 @@
 {
     "name": "@already/open-in-browser",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Package Open in Browser for already.",
     "main": "index.js",
     "repository": {
