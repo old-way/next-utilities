@@ -18,3 +18,5 @@ function openInBrowser(url) {
     }
 }
 exports.openInBrowser = openInBrowser;
+
+//# sourceMappingURL=open-in-browser.function.js.map

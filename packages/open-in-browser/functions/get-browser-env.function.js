@@ -20,3 +20,5 @@ function getBrowserEnv() {
     return { action, value };
 }
 exports.getBrowserEnv = getBrowserEnv;
+
+//# sourceMappingURL=get-browser-env.function.js.map

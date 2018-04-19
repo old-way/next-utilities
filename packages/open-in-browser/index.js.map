@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.ts"],"names":[],"mappings":";;AAAA,mFAAqE;AAErE,iFAAqE;AAA5D,mDAAA,aAAa,CAAA;AACtB,kBAAe,wCAAa,CAAC","file":"index.js","sourcesContent":["import { openInBrowser } from \"./functions/open-in-browser.function\";\n\nexport { openInBrowser } from \"./functions/open-in-browser.function\";\nexport default openInBrowser;\n"]}
