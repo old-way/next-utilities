@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const sequence = require("gulp-sequence");
+const sourcemaps = require("gulp-sourcemaps");
 const ts = require("@notadd/gulp-typescript");
 const tslint = require("gulp-tslint");
 
@@ -28,7 +29,9 @@ modules.forEach(module => {
                 emitError: false,
                 summarizeFailureOutput: true,
             }))
+            .pipe(sourcemaps.init())
             .pipe(packages[module]())
+            .pipe(sourcemaps.write("."))
             .pipe(gulp.dest(`${dist}/${module}`));
     });
 });
