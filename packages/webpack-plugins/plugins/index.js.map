@@ -1,0 +1,1 @@
+{"version":3,"sources":["plugins/index.ts"],"names":[],"mappings":";;AAAA,mDAAiD;AAAxC,yCAAA,aAAa,CAAA","file":"index.js","sourcesContent":["export { BackendPlugin } from \"./backend.plugin\";\n"]}

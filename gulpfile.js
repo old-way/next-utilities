@@ -6,6 +6,7 @@ const tslint = require("gulp-tslint");
 
 const packages = {
     "open-in-browser": ts.createProject("src/open-in-browser/tsconfig.json"),
+    "webpack-plugins": ts.createProject("src/webpack-plugins/tsconfig.json"),
 };
 
 const source = "src";
