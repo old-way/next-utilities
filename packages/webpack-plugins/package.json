@@ -1,6 +1,6 @@
 {
     "name": "@already/webpack-plugins",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "description": "Package Webpack Plugins for already.",
     "main": "index.js",
     "repository": {
@@ -14,8 +14,6 @@
     ],
     "author": "already",
     "license": "Apache-2.0",
-    "dependencies": {
-    },
     "bugs": {
         "url": "https://github.com/notadd/next-utilities/issues"
     },
