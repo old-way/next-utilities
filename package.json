@@ -6,6 +6,7 @@
     "scripts": {
         "build": "node --max_old_space_size=4096 ./node_modules/gulp/bin/gulp.js build --dist packages",
         "dev": "node ./node_modules/gulp/bin/gulp.js --dist packages",
+        "fix": "tslint -p tsconfig.json -c tslint.json --fix",
         "prepublish": "node --max_old_space_size=4096 ./node_modules/gulp/bin/gulp.js build --dist packages",
         "publish": "node ./node_modules/lerna/bin/lerna.js publish -m \"chore(release): publish %s\""
     },
