@@ -52,7 +52,7 @@ export class Host implements ts.CompilerHost {
 
     getCurrentDirectory = () => {
         return this.currentDirectory;
-    };
+    }
 
     getCanonicalFileName(filename: string) {
         return utils.normalizePath(filename);
@@ -63,11 +63,13 @@ export class Host implements ts.CompilerHost {
     }
 
     getDefaultLibLocation() {
-        return this.fallback.getDefaultLibLocation();
+        if (this.fallback) {
+            return this.fallback.getDefaultLibLocation();
+        }
     }
 
     writeFile = (fileName: string, data: string, writeByteOrderMark: boolean, onError?: (message: string) => void) => {
-    };
+    }
 
     fileExists = (fileName: string) => {
         const sourceFile = this.input.getFile(fileName);

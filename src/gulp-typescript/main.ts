@@ -159,7 +159,7 @@ namespace compile {
     }
 
     export type Project = _project.Project;
-    export type CompileStream = _project.ICompileStream;
+    export type CompileStream = _project.CompileStream;
     export import reporter = _reporter;
 
     export function createProject(tsConfigFileName: string, settings?: Settings): Project;

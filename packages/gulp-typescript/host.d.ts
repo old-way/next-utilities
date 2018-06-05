@@ -11,7 +11,7 @@ export declare class Host implements ts.CompilerHost {
     getCurrentDirectory: () => string;
     getCanonicalFileName(filename: string): string;
     getDefaultLibFileName(options: ts.CompilerOptions): string;
-    getDefaultLibLocation(): string;
+    getDefaultLibLocation(): string | undefined;
     writeFile: (fileName: string, data: string, writeByteOrderMark: boolean, onError?: ((message: string) => void) | undefined) => void;
     fileExists: (fileName: string) => boolean;
     readFile: (fileName: string) => string | undefined;

@@ -50,7 +50,9 @@ class Host {
         return this.fallback.getDefaultLibFileName(options);
     }
     getDefaultLibLocation() {
-        return this.fallback.getDefaultLibLocation();
+        if (this.fallback) {
+            return this.fallback.getDefaultLibLocation();
+        }
     }
 }
 exports.Host = Host;

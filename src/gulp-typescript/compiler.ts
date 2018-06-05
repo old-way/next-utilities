@@ -7,7 +7,7 @@ import { ProjectInfo } from "./project";
 import { CompilationResult, emptyCompilationResult } from "./reporter";
 import * as utils from "./utils";
 
-export interface ICompiler {
+export interface Compiler {
     prepare(project: ProjectInfo): void;
 
     inputFile(file: File): void;
@@ -32,7 +32,7 @@ interface OutputFile {
 /**
  * Compiles a whole project, with full type checking
  */
-export class ProjectCompiler implements ICompiler {
+export class ProjectCompiler implements Compiler {
     host: Host;
 
     project: ProjectInfo;
@@ -59,6 +59,7 @@ export class ProjectCompiler implements ICompiler {
         }
 
         const rootFilenames: Array<string> = this.project.input.getFileNames(true);
+
         if (!this.project.singleOutput) {
             if (this.project.options.rootDir === undefined) {
                 this.project.options.rootDir = utils.getCommonBasePathOfArray(
@@ -81,7 +82,12 @@ export class ProjectCompiler implements ICompiler {
             this.project.options,
         );
 
-        this.program = this.project.typescript.createProgram(rootFilenames, this.project.options, this.host, this.program);
+        this.program = this.project.typescript.createProgram(
+            rootFilenames as ReadonlyArray<string>,
+            this.project.options,
+            this.host,
+            this.program,
+        );
 
         const result = emptyCompilationResult(this.project.options.noEmit);
         result.optionsErrors = this.reportDiagnostics(this.program.getOptionsDiagnostics());
@@ -235,7 +241,7 @@ interface FileResult {
     sourceMap: string;
 }
 
-export class FileCompiler implements ICompiler {
+export class FileCompiler implements Compiler {
     host: Host;
 
     project: ProjectInfo;

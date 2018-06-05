@@ -113,10 +113,10 @@ class CompileStream extends stream.Duplex {
     }
     end(chunk, encoding, callback) {
         if (typeof chunk === "function") {
-            this._write(null, null, chunk);
+            this._write(undefined, undefined, chunk);
         }
         else if (typeof encoding === "function") {
-            this._write(chunk, null, encoding);
+            this._write(chunk, undefined, encoding);
         }
         else {
             this._write(chunk, encoding, callback);

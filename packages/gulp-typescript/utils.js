@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const colors = require("ansi-colors");
 const path = require("path");
+const colors = require("ansi-colors");
 function forwardSlashes(fileName) {
     return fileName.replace(/\\/g, "/");
 }
@@ -78,12 +78,12 @@ function getError(info, typescript, file) {
     err.startPosition = {
         position: info.start,
         line: startPos.line,
-        character: startPos.character,
+        character: startPos.character
     };
     err.endPosition = {
         position: info.start + info.length - 1,
         line: endPos.line,
-        character: endPos.character,
+        character: endPos.character
     };
     err.message = colors.red(fileName + "(" + (startPos.line + 1) + "," + (startPos.character + 1) + "): ").toString()
         + codeAndMessageText;

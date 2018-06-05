@@ -40,7 +40,7 @@ declare namespace compile {
         sourceRoot?: string;
     }
     type Project = _project.Project;
-    type CompileStream = _project.ICompileStream;
+    type CompileStream = _project.CompileStream;
     export import reporter = _reporter;
     function createProject(tsConfigFileName: string, settings?: Settings): Project;
     function createProject(settings?: Settings): Project;

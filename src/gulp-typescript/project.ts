@@ -4,7 +4,7 @@ import * as stream from "stream";
 import * as ts from "typescript";
 import * as VinylFile from "vinyl";
 import * as vfs from "vinyl-fs";
-import { FileCompiler, ICompiler, ProjectCompiler } from "./compiler";
+import { Compiler, FileCompiler, ProjectCompiler } from "./compiler";
 import { FileCache } from "./input";
 import { Output } from "./output";
 import { defaultReporter, Reporter } from "./reporter";
@@ -12,7 +12,7 @@ import { TsConfig } from "./types";
 import * as utils from "./utils";
 
 interface PartialProject {
-    (reporter?: Reporter): ICompileStream;
+    (reporter?: Reporter): CompileStream;
 
     src?(this: Project): NodeJS.ReadWriteStream;
 
@@ -30,7 +30,7 @@ interface PartialProject {
 }
 
 export interface Project {
-    (reporter?: Reporter): ICompileStream;
+    (reporter?: Reporter): CompileStream;
 
     src(this: Project): NodeJS.ReadWriteStream;
 
@@ -52,7 +52,7 @@ export interface ProjectInfo {
 
     output: Output;
 
-    compiler: ICompiler;
+    compiler: Compiler;
 
     singleOutput: boolean;
 
@@ -74,7 +74,7 @@ export function setupProject(
     typescript: typeof ts,
 ) {
     const input = new FileCache(typescript, options);
-    const compiler: ICompiler = options.isolatedModules ? new FileCompiler() : new ProjectCompiler();
+    const compiler: Compiler = options.isolatedModules ? new FileCompiler() : new ProjectCompiler();
     let running = false;
 
     if (options.isolatedModules) {
@@ -146,7 +146,8 @@ function src(this: Project) {
         this.typescript.sys,
         path.resolve(this.projectDirectory),
         undefined,
-        path.basename(this.configFileName));
+        path.basename(this.configFileName),
+    );
 
     for (const error of errors) {
         console.log(error.messageText);
@@ -162,13 +163,13 @@ function src(this: Project) {
     return vfs.src(fileNames, vinylOptions);
 }
 
-export interface ICompileStream extends NodeJS.ReadWriteStream {
+export interface CompileStream extends NodeJS.ReadWriteStream {
     js: stream.Readable;
 
     dts: stream.Readable;
 }
 
-class CompileStream extends stream.Duplex implements ICompileStream {
+class CompileStream extends stream.Duplex implements CompileStream {
     constructor(project: ProjectInfo) {
         super({ objectMode: true });
 
@@ -204,14 +205,13 @@ class CompileStream extends stream.Duplex implements ICompileStream {
     }
 
     _read() {
-
     }
 
     end(chunk?: any, encoding?: any, callback?: any) {
         if (typeof chunk === "function") {
-            this._write(null, null, chunk);
+            this._write(undefined, undefined, chunk);
         } else if (typeof encoding === "function") {
-            this._write(chunk, null, encoding);
+            this._write(chunk, undefined, encoding);
         } else {
             this._write(chunk, encoding, callback);
         }
@@ -229,6 +229,5 @@ class CompileOutputStream extends stream.Readable {
     }
 
     _read() {
-
     }
 }

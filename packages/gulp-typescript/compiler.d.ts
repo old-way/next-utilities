@@ -2,12 +2,12 @@ import * as ts from "typescript";
 import { Host } from "./host";
 import { File } from "./input";
 import { ProjectInfo } from "./project";
-export interface ICompiler {
+export interface Compiler {
     prepare(project: ProjectInfo): void;
     inputFile(file: File): void;
     inputDone(): void;
 }
-export declare class ProjectCompiler implements ICompiler {
+export declare class ProjectCompiler implements Compiler {
     host: Host;
     project: ProjectInfo;
     program: ts.Program;
@@ -21,7 +21,7 @@ export declare class ProjectCompiler implements ICompiler {
     private reportDiagnostics;
     private removeSourceMapComment;
 }
-export declare class FileCompiler implements ICompiler {
+export declare class FileCompiler implements Compiler {
     host: Host;
     project: ProjectInfo;
     private output;

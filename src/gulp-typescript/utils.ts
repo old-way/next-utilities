@@ -1,8 +1,8 @@
-import * as colors from "ansi-colors";
 import * as path from "path";
 import * as ts from "typescript";
 import { File } from "./input";
 import * as reporter from "./reporter";
+import * as colors from "ansi-colors";
 
 export interface Map<T> {
     [key: string]: T;
@@ -45,9 +45,7 @@ export function getCommonBasePath(a: string, b: string) {
     const bSplit = b.split(/\\|\//);
     let commonLength = 0;
     for (let i = 0; i < aSplit.length && i < bSplit.length; i++) {
-        if (aSplit[i] !== bSplit[i]) {
-            break;
-        }
+        if (aSplit[i] !== bSplit[i]) { break; }
 
         commonLength += aSplit[i].length + 1;
     }
@@ -56,9 +54,7 @@ export function getCommonBasePath(a: string, b: string) {
 }
 
 export function getCommonBasePathOfArray(paths: Array<string>) {
-    if (paths.length === 0) {
-        return "";
-    }
+    if (paths.length === 0) { return ""; }
     return paths.reduce(getCommonBasePath);
 }
 
@@ -100,12 +96,12 @@ export function getError(info: ts.Diagnostic, typescript: typeof ts, file?: File
     err.startPosition = {
         position: info.start,
         line: startPos.line,
-        character: startPos.character,
+        character: startPos.character
     };
     err.endPosition = {
         position: info.start + info.length - 1,
         line: endPos.line,
-        character: endPos.character,
+        character: endPos.character
     };
 
     err.message = colors.red(fileName + "(" + (startPos.line + 1) + "," + (startPos.character + 1) + "): ").toString()
@@ -118,7 +114,6 @@ export function deprecate(title: string, alternative: string, description?: stri
     message(title, alternative, description);
     console.log("  " + colors.gray("More information: " + colors.underline("http://dev.ivogabe.com/gulp-typescript-3/")));
 }
-
 export function message(title: string, alternative: string, description?: string) {
     console.log(
         colors.red("gulp-typescript").toString() +
@@ -126,7 +121,5 @@ export function message(title: string, alternative: string, description?: string
         title +
         colors.gray(" - ") +
         alternative);
-    if (description) {
-        console.log("  " + colors.gray(description.replace(/\n/g, "\n  ")));
-    }
+    if (description) { console.log("  " + colors.gray(description.replace(/\n/g, "\n  "))); }
 }
