@@ -5,6 +5,7 @@ const ts = require("@notadd/gulp-typescript");
 const tslint = require("gulp-tslint");
 
 const packages = {
+    "gulp-typescript": ts.createProject("src/gulp-typescript/tsconfig.json"),
     "open-in-browser": ts.createProject("src/open-in-browser/tsconfig.json"),
     "webpack-plugins": ts.createProject("src/webpack-plugins/tsconfig.json"),
 };
