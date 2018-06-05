@@ -13,9 +13,9 @@ export declare class Output {
     streamDts: stream.Readable;
     writeJs(base: string, fileName: string, content: string, sourceMapContent: string, cwd: string, original: input.File): void;
     writeDts(base: string, fileName: string, content: string, cwd: string): void;
-    private applySourceMap(sourceMapContent, original, output);
+    private applySourceMap;
     finish(result: reporter.CompilationResult): void;
-    private getError(info);
+    private getError;
     diagnostic(info: ts.Diagnostic): void;
     error(error: reporter.TypeScriptError): void;
 }

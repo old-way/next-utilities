@@ -21,11 +21,19 @@
         "typescript": "^2.8.1"
     },
     "devDependencies": {
+        "@already/gulp-typescript": "^1.0.0",
         "@already/open-in-browser": "^1.0.0",
         "@notadd/gulp-typescript": "^4.0.2",
+        "@types/ansi-colors": "^1.0.0",
         "@types/chalk": "^2.2.0",
         "@types/cross-spawn": "^6.0.0",
+        "@types/node": "^8.5.2",
         "@types/opn": "^5.1.0",
+        "@types/plugin-error": "^0.1.0",
+        "@types/source-map": "^0.5.2",
+        "@types/through2": "^2.0.33",
+        "@types/vinyl": "^2.0.2",
+        "@types/vinyl-fs": "^2.4.8",
         "gulp": "^3.9.1",
         "gulp-sequence": "^1.0.0",
         "gulp-sourcemaps": "^2.6.4",
@@ -35,6 +43,7 @@
         "tslint": "^5.9.1"
     },
     "workspaces": [
+        "packages/gulp-typescript",
         "packages/open-in-browser"
     ]
 }
