@@ -1,6 +1,6 @@
 {
     "name": "@already/gulp-typescript",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Package Gulp Typescirpt for Already.",
     "main": "index.js",
     "repository": {
@@ -20,8 +20,8 @@
         "plugin-error": "^0.1.2",
         "source-map": "^0.6.1",
         "through2": "^2.0.3",
-        "vinyl-fs": "^3.0.0",
-        "vinyl": "^2.1.0"
+        "vinyl": "^2.1.0",
+        "vinyl-fs": "^3.0.0"
     },
     "bugs": {
         "url": "https://github.com/notadd/next-utilities/issues"
